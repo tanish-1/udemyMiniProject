@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate} from 'react-router-dom';
-import User from './user/pages/User'
+import User from './user/pages/Users.jsx'
 import NewPlace from "./places/pages/NewPlace.jsx";
 const App = () => {
     return (
