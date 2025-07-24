@@ -1,4 +1,126 @@
-.map{
+/* Import OpenLayers CSS */
+@import 'ol/ol.css';
+
+.map {
     width: 100%;
     height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Map container in modal */
+.map-container {
+    height: 300px;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Custom marker styles */
+.ol-overlay-container {
+    pointer-events: none;
+}
+
+.ol-overlay-container .ol-overlay {
+    pointer-events: auto;
+}
+
+/* Custom marker pin */
+.custom-marker {
+    width: 30px;
+    height: 30px;
+    background-color: #ff4444;
+    border: 3px solid #ffffff;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.custom-marker::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Loading state */
+.map-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #666;
+    font-size: 14px;
+}
+
+.map-loading::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* OpenLayers control styling customization */
+.ol-zoom {
+    top: 10px;
+    left: 10px;
+}
+
+.ol-zoom button {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+}
+
+.ol-zoom button:hover {
+    background-color: #ffffff;
+}
+
+/* Attribution styling */
+.ol-attribution {
+    bottom: 5px;
+    right: 5px;
+    font-size: 11px;
+}
+
+.ol-attribution ul {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    padding: 2px 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .map-container {
+        height: 250px;
+    }
+
+    .custom-marker {
+        width: 25px;
+        height: 25px;
+    }
+
+    .custom-marker::after {
+        width: 12px;
+        height: 12px;
+    }
 }
